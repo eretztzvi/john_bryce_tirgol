@@ -14,8 +14,20 @@ function displayNames(names) {
   listOfNames.innerHTML = "";
 
   for (let i = 0; i < names.length; i++) {
+
     const li = document.createElement("li"); // create li element
     li.innerText = names[i]; // take the created li and put inside the name
+
+    const button = document.createElement("button"); // create button element 
+    button.innerText = "Delete name"; // insert text to button
+
+    // add function to button
+    button.onclick = function () {
+      deleteName(names[i]);
+    };
+
+    li.append(button);
+
     listOfNames.append(li); // ol > please append the li
   }
 }
@@ -36,6 +48,28 @@ function addName() {
     saveDataToLocalStorage("names", names); // save to local storage after stringify the names array
   }
 
+  displayNames(getDataFromLocalStorage("names"));
+
+  fullname.value = "";
+  fullname.focus();
+}
+
+// ============================================
+
+function deleteName(fullname) {
+  // get data from local atorage
+  const namesFromLocalStorage = getDataFromLocalStorage("names");
+
+  // find the index of the fullname inside the names array
+  const findNameIndex = namesFromLocalStorage.findIndex((currentNameInLoop) => currentNameInLoop === fullname); // arrow functions
+
+  // remove item from array
+  namesFromLocalStorage.splice(findNameIndex, 1);
+
+  // save updated array of names
+  saveDataToLocalStorage("names", namesFromLocalStorage);
+
+  // display updated array of names
   displayNames(getDataFromLocalStorage("names"));
 }
 
