@@ -1,0 +1,20 @@
+{
+  "name": "error-handler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "errorHandler.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.18.2",
+    "get-current-line": "^6.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

@@ -11,5 +11,5 @@ p {
 
 p::before {
   content: "123";
-  background: red;
+  background: transparent;
 }
